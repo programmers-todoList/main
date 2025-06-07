@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List Main</title>
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="./assets/css/reset.css" />
+    <link rel="stylesheet" href="./assets/css/main.css" />
+    <script type="text/javascript" src="./assets/js/script.js"></script>
+  </head>
+  <body>
+    <main>
+      <div class="inner">
+        <!-- 메인 상단 배너 영역 -->
+        <div class="top_banner"></div>
+        <!--// 메인 상단 배너 영역 -->
+
+        <!-- 컨텐츠 영역 -->
+        <div class="container">
+          <!-- 왼쪽 영역 -->
+          <aside class="left_area">
+            <div class="sticky">
+              <figure class="profile">
+                <img
+                  src="./assets/images/main/profile_img.png"
+                  alt="프로필 이미지"
+                />
+              </figure>
+              <nav class="lnb">
+                <ul>
+                  <li>
+                    <a href="" class="nav_link">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M11 18H3M15 18L17 20L21 16M16 12H3M16 6H3"
+                          stroke="#0F172B"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                      유하 princess
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#none" class="nav_link">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M11 18H3M15 18L17 20L21 16M16 12H3M16 6H3"
+                          stroke="#0F172B"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                      수진 princess
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#none" class="nav_link">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M11 18H3M15 18L17 20L21 16M16 12H3M16 6H3"
+                          stroke="#0F172B"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                      효영 princess
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#none" class="nav_link">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M11 18H3M15 18L17 20L21 16M16 12H3M16 6H3"
+                          stroke="#0F172B"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                      은빈 princess
+                    </a>
+                  </li>
+                  <li>
+                    <a href="./html/eunjung.html" class="nav_link">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M11 18H3M15 18L17 20L21 16M16 12H3M16 6H3"
+                          stroke="#0F172B"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                      은정 princess
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </aside>
+          <!--// 왼쪽 영역 -->
+
+          <!-- 오른쪽 영역 -->
+          <div class="right_area">
+            <iframe class="iframe" src="" frameborder="0"></iframe>
+          </div>
+          <!--// 오른쪽 영역 -->
+        </div>
+        <!--// 컨텐츠 영역 -->
+      </div>
+    </main>
+    <footer>
+      <div class="inner">
+        copright© 2025. 5팀 다섯공주들. All rights reserved.
+      </div>
+    </footer>
+  </body>
+</html>
+
+<script>
+  document.querySelectorAll(".nav_link").forEach((link) => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+      document.querySelector(".iframe").src = this.href;
+    });
+  });
+</script>
