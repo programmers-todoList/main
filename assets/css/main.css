@@ -3,10 +3,16 @@
   margin: 0 auto;
 }
 .top_banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
   height: 200px;
   margin-bottom: 50px;
-  background: url(../images/main/top_banner.jpg) no-repeat center -42px / cover;
+  font-size: 80px;
+  color: #fff;
+  background: url(../images/main/top_banner.png) no-repeat center -225px / cover;
+  z-index: 1;
   &::after {
     content: "";
     display: block;
@@ -15,7 +21,8 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: -1;
   }
 }
 .left_area {
@@ -70,7 +77,6 @@
     .iframe {
       width: 100%;
       min-height: calc(100vh - 400px);
-      background: url("../images/main/calendar.png") no-repeat center top/100%;
     }
   }
 }

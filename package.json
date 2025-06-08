@@ -1,0 +1,27 @@
+{
+  "name": "todolist-vanilla",
+  "version": "1.0.0",
+  "description": "5팀 다섯공주들 todoList",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "dev": "live-server --port=5050"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/programmers-todoList/main.git"
+  },
+  "keywords": [
+    "todoList"
+  ],
+  "author": "5팀 다섯공주들",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/programmers-todoList/main/issues"
+  },
+  "homepage": "https://github.com/programmers-todoList/main#readme",
+  "dependencies": {
+    "live-server": "^1.2.2"
+  }
+}
