@@ -6,7 +6,7 @@
     <title>Todo List - eunjung</title>
     <link rel="stylesheet" href="../assets/css/reset.css" />
     <link rel="stylesheet" href="../assets/css/eunjung.css" />
-    <script type="text/javascript" src="../assets/js/script.js"></script>
+    <script type="text/javascript" src="../assets/js/eunjung.js" defer></script>
   </head>
   <body>
     <div class="wrapper">
@@ -81,8 +81,8 @@
         <!-- 입력(input) 영역-->
         <div class="input_area">
           <h2>My Task</h2>
-          <input type="text" />
-          <button type="button">
+          <input type="text" id="todo_input" placeholder="Enter your task" />
+          <button type="button" id="add_button">
             <svg
               width="24"
               height="24"
@@ -106,30 +106,10 @@
         <!-- todo 영역 -->
         <div class="todo_area">
           <h3>Todo List</h3>
-          <ul class="todo_list">
+          <ul id="todo_list">
             <li>
               아침 일찍 일어나기
               <button class="delete" type="button">
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M3 6H21M19 6V20C19 21 18 22 17 22H7C6 22 5 21 5 20V6M8 6V4C8 3 9 2 10 2H14C15 2 16 3 16 4V6M10 11V17M14 11V17"
-                    stroke="#ffffff"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-                삭제
-              </button>
-            </li>
-            <li>
-              맑은 정신으로 강의 참여하기<button class="delete" type="button">
                 <svg
                   width="24"
                   height="24"
