@@ -9,7 +9,7 @@ const today = new Date();
 const day = today.getDate();
 
 // 월 지정
-const month = today.getMonth();
+const month = today.getMonth() + 1;
 
 // 년 지정
 const year = today.getFullYear();
@@ -27,7 +27,7 @@ const htmlYear = document.querySelector('.year');
 htmlYear.textContent = year;
 
 function getTodayLabel() {
-    let week = new Array('Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun');
+    let week = new Array('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat');
 
     let todayLabel = week[date];
 
