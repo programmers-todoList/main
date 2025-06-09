@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>메인인</title>
+    <link rel="stylesheet" href="../assets/css/reset.css" />
+    <link rel="stylesheet" href="../assets/css/hyoyoung.css" />
+    <script src="../assets/js/hyoyoung.js" defer></script>
+  </head>
+  <body>
+    <div class="todo-widget">
+      <header class="todo-header">
+        <button
+          class="todo-toggle-daily"
+          aria-label="Daily/Task 토글"
+          data-mode="daily"
+        >
+          Daily
+        </button>
+        <input
+          type="text"
+          class="todo-input"
+          placeholder=" 기다리고 있었어요🔥 오늘은 무엇을 해야 하나요?🤔"
+        />
+        <button class="todo-addBtn">ADD</button>
+      </header>
+
+      <main class="todo-main">
+        <ul class="todo-list"></ul>
+      </main>
+    </div>
+  </body>
+</html>
