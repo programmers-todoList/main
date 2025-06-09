@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UHA_TodoList</title>
+  <link rel="stylesheet" href="../assets/css/reset.css" />
+  <link rel="stylesheet" href="../assets/css/uha.css" />
+
+  <script src="../assets/js/uha.js" defer></script>
+</head>
+
+<body>
+
+  <div class="inner">
+
+    <div class="weeklyBox">
+      <div class="beer1"> </div>
+      <div class="beer2">
+        <span class="beer"></span>
+      </div>
+      <div class="beer3">
+        <span class="beer"></span>
+      </div>
+      <div class="beer4">
+        <span class="beer"></span>
+      </div>
+      <div class="beer5">
+        <span class="beer"></span>
+      </div>
+      <div class="beer6">
+        <span class="beer"></span>
+      </div>
+      <div class="countBeer">
+        <span class="beer"></span>
+        <span class="foam1"></span>
+        <span class="foam2"></span>
+      </div>
+
+    </div>
+
+    <div class="putItemBox">
+      <input id="whatTodo" type="text" placeholder="공주의 할 일"/>
+      <button class="addButton" onclick="inputItem()">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M16 6.66663V25.3333M6.66669 16H25.3334" stroke="#FFB224" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+
+      </button>
+
+    </div>
+
+    <div class="listItemBox">
+      <ul id="listItem">
+      </ul>
+
+    </div>
+
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+
+</html>
