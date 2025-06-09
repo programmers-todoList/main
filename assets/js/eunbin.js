@@ -1,6 +1,7 @@
 
 let idCounter = 1;
 let itemArray = [];
+let isDone = false;
 
 // 오늘 찾기
 const today = new Date();
@@ -57,7 +58,7 @@ function createItem ( value, id ) {
     li.setAttribute('data-id', id);
     li.innerHTML = /* html */`
             <div>
-                <input type="checkbox" />
+                <input type="checkbox" class="todo-checkbox" />
                 <span class="todo-text">${value}</span>
             </div>
             <div>
