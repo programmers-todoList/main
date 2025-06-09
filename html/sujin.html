@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../assets/css/reset.css" />
+    <link rel="stylesheet" href="../assets/css/sujin.css" />
+    <script src="../assets/js/sujin.js" defer></script>
+    <title>TodoList</title>
+  </head>
+  <body>
+    <header>
+      <h2>TodoList</h2>
+      <button type="button" class="addTodoButton" onclick="createNewTodoForm()">
+        <span>할일추가하기</span>
+      </button>
+    </header>
+    <div class="nothingTodo">
+      <span>할 일이 없습니다</span>
+    </div>
+    <ul>
+      <li class="todo_li">
+        <div class="mainTodo">
+          <button type="button" class="todoForm" onclick="completeTodo(this)">
+            <form>
+              <div class="tagUI">
+                <div class="circle"></div>
+              </div>
+              <span class="dDay"></span>
+              <input class="todo" type="text" required readonly />
+              <input type="text" readonly />
+            </form>
+          </button>
+          <div class="todoButtons">
+            <button
+              type="button"
+              class="deleteButton"
+              onclick="deleteTodo(this)"
+            >
+              <span>삭제</span>
+            </button>
+          </div>
+        </div>
+        <!-- <div class="subTodo">
+          <input type="checkbox" class="subDone" name="subDone" />
+          <button type="button" class="subTodoForm">
+            <form id="subForm">
+              <input
+                class="todo"
+                name="subTodo"
+                type="text"
+                required
+                placeholder="세부할일을 입력해주세요"
+                readonly
+              />
+              <input
+                name="subTodoInfo"
+                type="text"
+                placeholder="추가정보를 입력해주세요"
+                readonly
+              />
+            </form>
+          </button>
+          <span class="subDday">하잉</span>
+          <div class="todoButtons">
+            <button class="submitButton">
+              <span>등록</span>
+            </button>
+          </div>
+        </div> -->
+        <!-- <div class="newSubTodo">
+          <input type="checkbox" class="subDone" name="subDone" />
+          <button type="button" class="subTodoForm">
+            <form>
+              <input
+                class="todo"
+                name="subTodo"
+                type="text"
+                required
+                placeholder="세부할일을 입력해주세요"
+              />
+              <input
+                name="subTodoInfo"
+                type="text"
+                placeholder="추가정보를 입력해주세요"
+              />
+            </form>
+          </button>
+          <input name="subEndDate" type="date" class="subDate" />
+          <span class="dDay"></span>
+          <div class="todoButtons">
+            <button class="submitButton">
+              <span>등록</span>
+            </button>
+          </div>
+        </div> -->
+      </li>
+      <li class="newTodo">
+        <div class="mainTodo">
+          <button type="button" class="todoForm">
+            <form id="mainForm">
+              <div class="tag">
+                <input name="tagColor" type="color" class="tagColor" />
+                <input
+                  name="tag"
+                  type="text"
+                  placeholder="태그이름을 입력해주세요"
+                />
+              </div>
+              <input name="endDate" type="date" class="date" />
+              <span class="dDay"></span>
+              <input
+                class="todo"
+                name="todo"
+                type="text"
+                required
+                placeholder="할일을 입력해주세요"
+              />
+              <input
+                name="todoInfo"
+                type="text"
+                placeholder="추가정보를 입력해주세요"
+              />
+            </form>
+          </button>
+          <div class="todoButtons">
+            <button class="submitButton" onclick="createNewTodo()">
+              <span>등록</span>
+            </button>
+          </div>
+        </div>
+        <!-- <div class="subTodo">
+          <input type="checkbox" class="subDone" name="subDone" />
+          <button type="button" class="subTodoForm">
+            <form id="subForm">
+              <input
+                class="todo"
+                name="subTodo"
+                type="text"
+                required
+                placeholder="세부할일을 입력해주세요"
+              />
+              <input
+                name="subTodoInfo"
+                type="text"
+                placeholder="추가정보를 입력해주세요"
+              />
+            </form>
+          </button>
+          <input name="subEndDate" type="date" class="subDate" />
+          <span class="dDay"></span>
+          <div class="todoButtons">
+            <button class="submitButton">
+              <span>등록</span>
+            </button>
+          </div>
+        </div> -->
+      </li>
+    </ul>
+  </body>
+</html>
