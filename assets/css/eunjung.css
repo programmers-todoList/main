@@ -93,7 +93,7 @@ header {
     font-size: 20px;
     font-weight: 500;
   }
-  .todo_list {
+  #todo_list {
     li {
       display: flex;
       align-items: center;
