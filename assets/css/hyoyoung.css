@@ -1,0 +1,146 @@
+* {
+  box-sizing: border-box;
+}
+.todo-widget {
+  /* border: 1px solid black; */
+  max-width: 870px;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0 auto;
+
+  background-color: #eee;
+  border-radius: 20px;
+}
+.todo-header {
+  /* border-bottom: 2px #888888 solid; */
+  width: inherit;
+  /* height: 50px; */
+
+  padding-inline: 1rem;
+  padding-top: 1rem;
+
+  display: flex;
+  justify-content: space-between;
+}
+.todo-toggle-daily {
+  background-color: #0064ff;
+  border: 0px;
+  border-radius: 100px;
+  width: 8rem;
+
+  padding-block: 0.7rem;
+
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+
+  &:hover {
+    background-color: #0050c7;
+    cursor: pointer;
+  }
+}
+.todo-toggle-task {
+  background-color: #3b465c;
+  border: 0px;
+  border-radius: 100px;
+  width: 8rem;
+
+  padding-block: 0.7rem;
+
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+
+  &:hover {
+    background-color: #4c5a77;
+    cursor: pointer;
+  }
+}
+.todo-input {
+  /* height: 80%; */
+  width: 70%;
+  border: 0px;
+  border-radius: 10px;
+  padding-left: 0.5rem;
+  font-size: 1.1rem;
+
+  &:focus {
+    outline: none;
+    border: 2px solid #0064ff;
+  }
+}
+.todo-addBtn {
+  width: 6rem;
+  background-color: #0064ff;
+  border: 0px;
+  border-radius: 30px;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+
+  padding-block: 4px;
+
+  &:hover {
+    background-color: #0050c7;
+    cursor: pointer;
+  }
+}
+.todo-main {
+  /* border: 1px solid hotpink; */
+  width: inherit;
+  padding: 1rem;
+}
+.todo-list {
+  /* border: 1px solid orange; */
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.todo-list-element {
+  width: inherit;
+  height: 50px;
+  border-radius: 10px;
+  background-color: #fff;
+  padding-inline: 1.5rem;
+
+  display: flex;
+  align-items: center;
+
+  span {
+    display: inline-block;
+    max-width: 85%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+.todo-list-element-checkbox {
+  transform: scale(2);
+  margin-right: 1.5rem;
+  accent-color: #0064ff; /*체크 박스 컬러 변경.*/
+}
+.todo-list-element-D_day {
+  margin-right: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #0064ff;
+}
+.todo-list-element-delete {
+  transform: scale(1.5);
+  background-color: white;
+  border: 0px;
+  margin-left: auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+.clear {
+  text-decoration: line-through;
+  color: #aaa;
+}
