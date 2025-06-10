@@ -34,9 +34,12 @@
   font-size: 20px;
   font-weight: bold;
 
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.4); /* 오른쪽 아래로 그림자가 지면서 튀어나온 느낌 */
+
   &:hover {
     background-color: #0050c7;
     cursor: pointer;
+    box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.5);
   }
 }
 .todo-toggle-task {
@@ -51,16 +54,19 @@
   font-size: 20px;
   font-weight: bold;
 
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.4); /* 오른쪽 아래로 그림자가 지면서 튀어나온 느낌 */
+
   &:hover {
     background-color: #4c5a77;
     cursor: pointer;
+    box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.5);
   }
 }
 .todo-input {
   /* height: 80%; */
   width: 70%;
   border: 0px;
-  border-radius: 10px;
+  border-radius: 10px !important;
   padding-left: 0.5rem;
   font-size: 1.1rem;
 
@@ -80,9 +86,12 @@
 
   padding-block: 4px;
 
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.4);
+
   &:hover {
     background-color: #0050c7;
     cursor: pointer;
+    box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.5);
   }
 }
 .todo-main {
@@ -119,6 +128,10 @@
   transform: scale(2);
   margin-right: 1.5rem;
   accent-color: #0064ff; /*체크 박스 컬러 변경.*/
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 .todo-list-element-D_day {
   margin-right: 1rem;
