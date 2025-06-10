@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To do list</title>
+
+    <link rel="stylesheet" href="../assets/css/eunbin.css" />
+    <script src="../assets/js/eunbin.js" defer></script>
+</head>
+<body>
+
+    <div class="container">
+        <div class="main">
+
+            <div class="header">
+                <div>
+                    <span class="day"></span>
+                    <div>
+                        <span class="mon"></span>
+                        <span class="year"></span>
+                    </div>
+                </div>
+                <span class="date"></span>
+            </div>
+
+            <!-- 할 일 입력 -->
+            <div class="inputBox">
+                <input type="text" id="inputValue" placeholder="Write task here ✏️" />
+                <button type="button" onclick="handleTodoList(this)">
+                    +
+                </button>
+            </div>
+
+            <!-- 할 일 목록 -->
+            <ul id="todoList">
+                <li class="todo-item" data-id="todo-0" id="first">
+                    오늘의 할 일은?
+                    <!-- <button type="button">HIDE</button> -->
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+</body>
+</html>
