@@ -48,8 +48,13 @@ addButton.addEventListener("click", () => {
 // 모드에 따른 리스트트 랜더링 함수.
 function renderhyoTodos() {
   list.innerHTML = ""; // 항상 초기화
-  if (currentMode === "daily") renderDailyhyoTodos();
-  else if (currentMode === "task") renderTaskhyoTodos();
+  if (currentMode === "daily") {
+    renderDailyhyoTodos();
+    input.placeholder = " 기다리고 있었어요🔥 오늘은 무엇을 해야 하나요?🤔";
+  } else if (currentMode === "task") {
+    renderTaskhyoTodos();
+    input.placeholder = " 새로운 목표가 있나요❓ 벌써 기대돼요✌️"; // Task 모드용 placeholder
+  }
 }
 
 // 데일리 랜더 함수.
@@ -77,9 +82,17 @@ function renderDailyhyoTodos() {
 
 // 태스크 렌더 함수.
 function renderTaskhyoTodos() {
+  // D-day를 기준으로 오름차순 정렬.
+  hyoTodos.task.sort((a, b) => {
+    const dDayA = calculateDday(a.deadline);
+    const dDayB = calculateDday(b.deadline);
+    return dDayA - dDayB; // 오름차순 정렬
+  });
+
+  list.innerHTML = ""; // 클리어.
+
   hyoTodos.task.forEach((item, index) => {
-    // hyoTodos.task에에 있는 할 일을 하나씩 뽑아서 list에 append.
-    const dDay = calculateDday(item.deadline); // 마감일이 저장되어있으므로 가져올때 디데이를 계산해야 함.
+    const dDay = calculateDday(item.deadline);
     const li = document.createElement("li");
     li.className = "todo-list-element";
     li.innerHTML = /* html */ `
@@ -96,7 +109,6 @@ function renderTaskhyoTodos() {
             </clipPath>
           </defs>
         </svg>
-
       </button>
     `;
     list.appendChild(li);
