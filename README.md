@@ -89,9 +89,9 @@
 
 - **스크린샷**:
 
-<img src="./assets/images/sub/hyo/daily_screenshot.png" alt="효영 UI" width="600" />
-<img src="./assets/images/sub/hyo/task_screenshot.png" alt="효영 UI" width="600" />
-<img src="./assets/images/sub/hyo/modal_screenshot.png" alt="효영 UI" width="600" />
+<img src="./assets/images/sub/hyo/daily_screenshot.png" alt="효영 UI" width="700" />
+<img src="./assets/images/sub/hyo/task_screenshot.png" alt="효영 UI" width="800" />
+<img src="./assets/images/sub/hyo/modal_screenshot.png" alt="효영 UI" width="900" />
 
 ---
 
