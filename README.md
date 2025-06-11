@@ -60,9 +60,10 @@
    이점 : 서로 다른 코드베이스 간의 충돌을 방지하고, 각 페이지의 기능을 독립적으로 테스트하거나 다양한 정보를 동시에 확인할 수 있도록 iframe 방식을 채택하였습니다.
 
 - 스크린샷 :
-  <img src="./assets/images/main/readme_main.png" alt="main UI" width="300" />
-  <img src="./assets/images/main/readme_iframe.png" alt="iframe UI" width="300" />
-  <img src="./assets/images/main/readme_nav.png" alt="nav UI" width="300" />
+
+  <img src="./assets/images/main/readme_main.png" alt="main UI" width="600" />
+  <img src="./assets/images/main/readme_iframe.png" alt="iframe UI" width="600" />
+  <img src="./assets/images/main/readme_nav.png" alt="nav UI" width="600" />
 
 ## ✅ 팀원별 기능 및 UI
 
@@ -88,9 +89,9 @@
 
 - **스크린샷**:
 
-<img src="./assets/images/sub/hyo/daily_screenshot.png" alt="효영 UI" width="300" />
-<img src="./assets/images/sub/hyo/task_screenshot.png" alt="효영 UI" width="300" />
-<img src="./assets/images/sub/hyo/modal_screenshot.png" alt="효영 UI" width="300" />
+<img src="./assets/images/sub/hyo/daily_screenshot.png" alt="효영 UI" width="600" />
+<img src="./assets/images/sub/hyo/task_screenshot.png" alt="효영 UI" width="600" />
+<img src="./assets/images/sub/hyo/modal_screenshot.png" alt="효영 UI" width="600" />
 
 ---
 
