@@ -21,13 +21,42 @@
         <input
           type="text"
           class="todo-input"
-          placeholder=" 기다리고 있었어요🔥 오늘은 무엇을 해야 하나요?🤔"
+          placeholder=" 기다리고 있었어요!🔥 오늘은 무엇을 해야 하나요?🤔"
         />
         <button class="todo-addBtn">ADD</button>
       </header>
 
       <main class="todo-main">
         <ul class="todo-list"></ul>
+        <div class="modal-backdrop" aria-hidden="true">
+          <div
+            class="modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modalTitle"
+            aria-hidden="true"
+            tabindex="-1"
+          >
+            <h2 id="modalTitle">언제까지 해야 하나요?🤔</h2>
+            <div>
+              <label for="year"
+                >연도
+                <input id="year" type="text" placeholder="YYYY" />
+              </label>
+
+              <label for="month"
+                >월
+                <input id="month" type="text" placeholder="MM" />
+              </label>
+
+              <label for="day"
+                >일
+                <input id="day" type="text" placeholder="DD" />
+              </label>
+            </div>
+            <button type="button" class="submitDate">확인</button>
+          </div>
+        </div>
       </main>
     </div>
   </body>
