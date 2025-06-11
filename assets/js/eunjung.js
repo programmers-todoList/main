@@ -3,8 +3,13 @@ let todos = [];
 
 // 할 일 항목(li) 생성 함수
 function createItem(value, id) {
-  return `<li data-id="${id}">${value}
-  <button class="delete" type="button">
+  return `<li data-id="${id}">
+    <label class="checkbox">
+      <input type="checkbox">
+      <span class="checkbox_icon"></span>
+    </label>
+    ${value}
+    <button class="delete" type="button">
                 <svg
                   width="24"
                   height="24"
@@ -31,38 +36,52 @@ function renderItem({ target, value, id }) {
   target.insertAdjacentHTML("beforeend", li);
 }
 
-// 할 일 삭제
+// 할 일 항목 제거 및 배열, localStorage 업데이트
 function handleRemove(e) {
+  // .delete 클래스가 있는 요소(삭제 버튼)만 처리
   if (e.target.classList.contains("delete")) {
-    const li = e.target.closest("li");
+    const li = e.target.closest("li"); // 버튼의 부모 li 찾기
     const id = Number(li.dataset.id);
+    // 배열에서 해당 id 삭제
     todos = todos.filter((todo) => todo.id !== id);
+    // localStorage 업데이트
     localStorage.setItem("todos", JSON.stringify(todos));
+    // DOM에서 삭제
     li.remove();
   }
 }
 
-// DOM 요소 선택
-const input = document.getElementById("todo_input");
-const button = document.getElementById("add_button");
-const ul = document.getElementById("todo_list");
+// 페이지 로드 시 실행
+function init() {
+  const input = document.getElementById("todo_input");
+  const button = document.getElementById("add_button");
+  const ul = document.getElementById("todo_list");
 
-ul.addEventListener("click", handleRemove);
+  // localStorage에서 할 일 목록 불러오기
+  const savedTodos = localStorage.getItem("todos");
+  if (savedTodos) {
+    todos = JSON.parse(savedTodos);
+    // 목록 렌더링
+    todos.forEach((todo) => {
+      renderItem({ target: ul, value: todo.value, id: todo.id });
+    });
+  }
 
-// 버튼 클릭 이벤트
-button.addEventListener("click", () => {
-  if (input.value.trim() === "") return; // 빈 입력 방지
+  // ul에 클릭 이벤트 등록 (항목 삭제)
+  ul.addEventListener("click", handleRemove);
 
-  // 고유 ID 생성 
-  const id = Date.now();
-
-  // 할 일 추가
-  renderItem({
-    target: ul,
-    value: input.value,
-    id: id,
+  // 추가 버튼 클릭 이벤트
+  button.addEventListener("click", () => {
+    if (input.value.trim() === "") return;
+    // 고유 ID 생성 
+    const id = Date.now();
+    todos.push({ id, value: input.value });
+    localStorage.setItem("todos", JSON.stringify(todos));
+    // 할 일 추가
+    renderItem({ target: ul, value: input.value, id });
+    input.value = ""; // 입력창 초기화
   });
+}
 
-  input.value = ""; // 입력창 초기화
-});
-
+// DOM이 로드된 후 init 실행
+document.addEventListener("DOMContentLoaded", init);
