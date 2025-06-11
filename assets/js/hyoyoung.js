@@ -9,6 +9,14 @@ const addButton = document.querySelector(".todo-addBtn"); // 할 일 생성 버�
 const list = document.querySelector(".todo-list"); // 양산형 리스트.
 const toggle = document.querySelector(".todo-toggle-daily, .todo-toggle-task"); // 토글.
 
+// 모달 관련 요소 선택
+const modalBackdrop = document.querySelector(".modal-backdrop"); // 모달 뒤.
+const modal = modalBackdrop.querySelector(".modal"); // 모달.
+const submitBtn = document.querySelector(".submitDate"); // 날짜 제출 버튼.
+const yearInput = document.getElementById("year"); // 연도 인풋.
+const monthInput = document.getElementById("month"); // 월 인풋.
+const dayInput = document.getElementById("day"); // 일 인풋.
+
 /* ----------------------------------- 함수 및 이벤트트 ----------------------------------- */
 // 할 일 추가 이벤트.
 addButton.addEventListener("click", () => {
@@ -17,52 +25,31 @@ addButton.addEventListener("click", () => {
 
   if (currentMode === "daily") {
     hyoTodos.daily.push({ text, done: false }); // 데일리 푸시.
+    saveToLocalStorage();
+    renderTodos();
+    input.value = "";
   } else if (currentMode === "task") {
-    let deadline;
-    while (true) {
-      deadline = prompt("마감일을 YYYY-MM-DD 형식으로 입력하세요");
-      if (deadline === null) return;
-
-      const parsed = new Date(deadline);
-      const today = new Date();
-      today.setHours(0, 0, 0, 0); // 자정 기준 비교. parsed에는 일자는 같지만 시간 때문에 동등 비교가 어려움. 그래서 시간을 통일시켜 줌.
-      if (deadline.trim() === "" || isNaN(parsed)) {
-        alert("유효한 날짜를 입력해주세요.");
-        continue;
-      }
-      if (parsed < today) {
-        alert("오늘보다 이전 날짜는 사용할 수 없습니다.");
-        continue;
-      }
-      break; // 정상적인 날짜일 경우 반복 종료.
-    }
-
-    hyoTodos.task.push({ text, deadline }); // 태스크 푸시.
+    openModal(); // 모달 오픈.
   }
-
-  saveToLocalStorage();
-  renderhyoTodos();
-  input.value = "";
 });
 
-// 모드에 따른 리스트트 랜더링 함수.
-function renderhyoTodos() {
+// 모드에 따른 리스트 랜더링 함수.
+function renderTodos() {
   list.innerHTML = ""; // 항상 초기화
   if (currentMode === "daily") {
-    renderDailyhyoTodos();
+    renderDailyTodos();
     input.placeholder = " 기다리고 있었어요🔥 오늘은 무엇을 해야 하나요?🤔";
   } else if (currentMode === "task") {
-    renderTaskhyoTodos();
-    input.placeholder = " 새로운 목표가 있나요❓ 벌써 기대돼요✌️"; // Task 모드용 placeholder
+    renderTaskTodos();
+    input.placeholder = " 새로운 목표가 있나요❓ 벌써 기대돼요!✌️"; // Task 모드용 placeholder
   }
 }
 
 // 데일리 랜더 함수.
-function renderDailyhyoTodos() {
+function renderDailyTodos() {
   hyoTodos.daily.forEach((item, index) => {
-    // hyoTodos.daily에 있는 할 일을 하나씩 뽑아서 list에 append.
-    const li = document.createElement("li");
-    li.className = "todo-list-element";
+    const li = document.createElement("li"); //li 태그그 하나 만들기.
+    li.className = "todo-list-element"; // 클래스 삽입.
     li.innerHTML = /* html */ `
       <input type="checkbox" class="todo-list-element-checkbox" data-index="${index}" ${
       item.done ? "checked" : ""
@@ -76,24 +63,23 @@ function renderDailyhyoTodos() {
         </svg>
       </button>
     `;
-    list.appendChild(li);
+    list.appendChild(li); // 리스트 추가.
   });
 }
 
-// 태스크 렌더 함수.
-function renderTaskhyoTodos() {
-  // D-day를 기준으로 오름차순 정렬.
+// 태스크 랜더 함수.
+function renderTaskTodos() {
   hyoTodos.task.sort((a, b) => {
+    // 디데이가 짧은 순으로 정렬.
     const dDayA = calculateDday(a.deadline);
     const dDayB = calculateDday(b.deadline);
-    return dDayA - dDayB; // 오름차순 정렬
+    return dDayA - dDayB;
   });
 
-  list.innerHTML = ""; // 클리어.
-
+  list.innerHTML = "";
   hyoTodos.task.forEach((item, index) => {
-    const dDay = calculateDday(item.deadline);
-    const li = document.createElement("li");
+    const dDay = calculateDday(item.deadline); // 디데이 계산 함수 호출해서 디데이 계산해오기.
+    const li = document.createElement("li"); // li 태그 생성.
     li.className = "todo-list-element";
     li.innerHTML = /* html */ `
       <span class="todo-list-element-D_day">D-${dDay}</span>
@@ -111,7 +97,7 @@ function renderTaskhyoTodos() {
         </svg>
       </button>
     `;
-    list.appendChild(li);
+    list.appendChild(li); //리스트 추가.
   });
 }
 
@@ -132,28 +118,25 @@ list.addEventListener("click", (e) => {
     } else if (currentMode === "task") {
       hyoTodos.task.splice(index, 1);
     }
-    saveToLocalStorage(); // 삭제 후에는 로컬 스토리지 저장.
-    renderhyoTodos(); // 새로고침.
-  }
-});
-
-// 할 일 체크 이벤트
-list.addEventListener("change", (e) => {
-  const checkbox = e.target;
-  if (checkbox.matches(".todo-list-element-checkbox")) {
-    const li = checkbox.closest(".todo-list-element");
-    const span = li.querySelector("span"); // 같은 li 안의 span 찾기
-    span.classList.toggle("clear", checkbox.checked);
+    saveToLocalStorage(); // 삭제 후 로컬스토리지에 저장.
+    renderTodos(); // 새로고침.
   }
 });
 
 // 데일리 전용 - 할 일 완료.
 list.addEventListener("change", (e) => {
   if (e.target.matches(".todo-list-element-checkbox")) {
-    const index = e.target.dataset.index;
-    hyoTodos.daily[index].done = e.target.checked; // 체크 박스의 여부를 스토리지에 반영.
-    saveToLocalStorage(); //로컬 스토리지 저장.
-    renderhyoTodos(); // 새로고침.
+    const checkbox = e.target;
+    const index = checkbox.dataset.index;
+    const li = checkbox.closest(".todo-list-element");
+    const span = li.querySelector("span");
+    span.classList.toggle("clear", checkbox.checked); // clear 클래스 추가. = 클리어 처리(디자인)
+
+    if (currentMode === "daily") {
+      hyoTodos.daily[index].done = checkbox.checked;
+      saveToLocalStorage();
+      renderTodos();
+    }
   }
 });
 
@@ -161,17 +144,17 @@ list.addEventListener("change", (e) => {
 toggle.addEventListener("click", () => {
   if (currentMode === "daily") {
     currentMode = "task";
-    toggle.className = "todo-toggle-task";
+    toggle.className = "todo-toggle-task"; // 모드에 따른 클래스 변경.
     toggle.dataset.mode = "task";
     toggle.textContent = "Task";
   } else {
     currentMode = "daily";
-    toggle.className = "todo-toggle-daily";
+    toggle.className = "todo-toggle-daily"; // 모드에 따른 클래스 변경.
     toggle.dataset.mode = "daily";
     toggle.textContent = "Daily";
   }
 
-  renderhyoTodos(); // 새로고침.
+  renderTodos(); // 새로 고침.
 });
 
 // 로컬 스토리지에 할 일 저장 함수.
@@ -189,7 +172,101 @@ function loadFromLocalStorage() {
   }
 }
 
+// 모달 열기 함수
+function openModal() {
+  modalBackdrop.classList.add("show");
+  modalBackdrop.setAttribute("aria-hidden", "false"); // 모달이 열리면 스크린리더에게 읽혀야 하기 때문에 속성을 변경.
+  document.body.style.overflow = "hidden"; // 모달이 떠있는동안 뒷 배경이 스크롤 되는것을 방지.
+}
+
+// 모달 닫기 함수
+function closeModal() {
+  modalBackdrop.classList.remove("show");
+  modalBackdrop.setAttribute("aria-hidden", "true"); // 모달이 닫기면 스크린리더에게 보이지 않아함.
+  document.body.style.overflow = "auto"; // 스크롤 다시 복구.
+  clearModalInputs(); // 입력 필드 초기화.
+}
+
+// 입력 필드 초기화
+function clearModalInputs() {
+  yearInput.value = "";
+  monthInput.value = "";
+  dayInput.value = "";
+}
+
+// 모달 외부 클릭 감지
+modalBackdrop.addEventListener("click", (e) => {
+  // 모달의 전체 영역을 불러고
+  if (!modal.contains(e.target)) {
+    // 모달이 아닌곳을 클릭하면 모달 닫기.
+    closeModal();
+  }
+});
+
+// 날짜 유효성 검사
+function isValidDate(y, m, d) {
+  const parsed = new Date(y, m - 1, d); //JS에서 월은 0부터 시작함. 즉 0 = 1월을 의미함. 따라서 -1을 해야 함.
+  return (
+    // JS Date 객체는 날짜 보정을 자동으로 해준다. 예) 2025 1 30이 입력되면 보정이 되어서 2025 3 02가 된다. (2월은 28일까지)
+    parsed.getFullYear() === y && // 따라서 입력된 날짜가 유효한지 확인하는 절차가 꼭 필요하다.
+    parsed.getMonth() === m - 1 &&
+    parsed.getDate() === d
+  );
+}
+
+// 날짜 제출 처리
+submitBtn.addEventListener("click", () => {
+  const y = parseInt(yearInput.value, 10); // 10진수라고 써주는게 좋은 습관이라고 함.
+  const m = parseInt(monthInput.value, 10); // 일부 브라우저는 8진수로 이해하는 경우도 있다고 함.
+  const d = parseInt(dayInput.value, 10);
+
+  if (!isValidDate(y, m, d)) {
+    // 유저가 입력한 날짜가 유효한지 검사.
+    // 날짜 유효성 검사 함수 호출.
+    alert("유효한 날짜를 입력해주세요.");
+    return;
+  }
+
+  const today = new Date();
+  today.setHours(0, 0, 0, 0); // 00시00분으로 맞춰야 동등 비교가 가능하다.
+  const deadline = new Date(y, m - 1, d);
+
+  if (deadline < today) {
+    // 오늘보다 이전인 날짜는 디데이를 설정하는 의미가 없다.
+    // 이전 날짜를 선택 할 수 없음.
+    alert("오늘보다 이전 날짜는 사용할 수 없습니다.");
+    return;
+  }
+
+  const text = input.value.trim(); // 메인 인풋의 밸류를 담음.
+  if (!text) return;
+
+  hyoTodos.task.push({ text, deadline: deadline.toISOString().split("T")[0] }); // 메인 인풋의 밸류 = 할 일 과 날짜를 짝지어서 저장.
+  saveToLocalStorage();
+  renderTodos(); // 새로고침.
+
+  input.value = ""; // 메인 인풋 필드 초기화.
+  closeModal(); // 모달 닫기.
+});
+
+// 디데이가 지난 함수 삭제.
+function purgeExpiredTasks() {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const before = hyoTodos.task.length;
+
+  hyoTodos.task = hyoTodos.task.filter((item) => {
+    const deadline = new Date(item.deadline);
+    return deadline >= today;
+  });
+
+  if (hyoTodos.task.length < before) {
+    saveToLocalStorage();
+  }
+}
+
 /* ------------------------------------ - ----------------------------------- */
-// 마운트라고 하나?
-loadFromLocalStorage(); // 브라우저가 js 파일 실행시 호출되게 끔.
-renderhyoTodos(); // 브라우저가 js 파일 실행시 호출되게 끔.
+// 로컬에 저장되어있는 할 일 목록 가져오기.
+loadFromLocalStorage();
+purgeExpiredTasks(); // 디데이가 오버된 할일 제거 함수 호출.
+renderTodos();

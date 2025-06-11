@@ -1,4 +1,4 @@
-![header](https://capsule-render.vercel.app/api?type=waving&color=auto&height=200&section=header&text=TodoList&fontSize=60)
+![header](https://capsule-render.vercel.app/api?type=waving&color=D2BCFF&height=200&section=header&text=TodoList&fontSize=60)
 
 # 👑 프로그래머스 데브코스 프론트엔드 5기 - 5팀 [다섯 공주들]
 
@@ -50,18 +50,47 @@
 ### 🔹 메인
 
 - 기능 : 개인 페이지로 라우팅
-- 기술 포인트 : iframe으로 각자 투두리스트 랜더
-- 스크린샷 : 찰칵
+- 기술 포인트 : iframe 기반 메인 페이지 기능 설명
+
+1. 페이지 통합 및 분리 관리
+   설명: 메인 페이지에서는 여러 개의 하위 페이지를 하나의 화면에 통합하여 보여줍니다.
+   방법: 각 하위 페이지는 iframe 태그를 통해 독립적으로 로드되며, 메인 페이지의 레이아웃에 맞게 배치됩니다.
+2. 독립적인 페이지 동작
+   설명: 각 iframe은 별도의 웹 페이지처럼 동작합니다. 즉, 하나의 iframe에서 발생하는 이벤트나 페이지 전환이 다른 iframe에 영향을 주지 않습니다.
+   이점 : 서로 다른 코드베이스 간의 충돌을 방지하고, 각 페이지의 기능을 독립적으로 테스트하거나 다양한 정보를 동시에 확인할 수 있도록 iframe 방식을 채택하였습니다.
+
+- 스크린샷 :
+  <img src="./assets/images/main/readme_main.png" alt="main UI" width="300" />
+  <img src="./assets/images/main/readme_iframe.png" alt="iframe UI" width="300" />
+  <img src="./assets/images/main/readme_nav.png" alt="nav UI" width="300" />
 
 ## ✅ 팀원별 기능 및 UI
 
 ### 🔹 효영
 
-- **기능**: 데일리/장기 할 일 토글 기능, 마감일 유효성 검사, 할 일 추가 시 사용자 피드백 메시지
-- **기술 포인트**: `prompt()`를 이용한 마감일 입력 및 날짜 파싱 로직
+- **기능**: `할 일 리스트 출력`, `토글 전환`, `모달`, `할 일 리스트 정렬`, `로컬 스토리지 저장 및 로드`.
+- **기술 포인트**:
+
+1. `상태 기반 렌더링`: daily와 task 두 가지 모드를 상태로 관리하고, 토글 버튼을 통해 전환하여 일관된 UI를 유지.
+
+2. `사용자 입력 처리`: 마감일 입력 시 prompt 대신 모달 창을 활용하여 사용자 경험을 향상.
+
+3. `날짜 유효성 검증`: 잘못된 날짜 입력을 사전에 감지할 수 있도록 Date 객체 기반의 유효성 검사 로직을 구현.
+
+4. `D-Day 계산`: 마감일까지 남은 날짜를 직관적으로 확인할 수 있도록 Date 객체를 활용한 D-Day 계산 기능을 적용.
+
+5. `로컬 스토리지 동기화`: 작성한 할 일 데이터는 localStorage에 자동 저장되어 새로고침 후에도 상태가 유지.
+
+6. `디데이 기반 정렬`: Task 목록은 마감일이 가까운 순서로 정렬되어 사용자에게 우선순위가 높은 항목을 먼저
+   노출.
+
+7. `할 일 만료 자동 처리`: D-Day가 지난 할 일은 자동으로 제거되어, 유효하지 않은 작업이 리스트에 남지 않도록 관리.
+
 - **스크린샷**:
 
-<img src="./images/hyoyoung.png" alt="효영 UI" width="300" />
+<img src="./assets/images/sub/hyo/daily_screenshot.png" alt="효영 UI" width="300" />
+<img src="./assets/images/sub/hyo/task_screenshot.png" alt="효영 UI" width="300" />
+<img src="./assets/images/sub/hyo/modal_screenshot.png" alt="효영 UI" width="300" />
 
 ---
 
