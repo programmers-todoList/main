@@ -1,6 +1,6 @@
 ![header](https://capsule-render.vercel.app/api?type=waving&color=D2BCFF&height=200&section=header&text=TodoList&fontSize=60)
 
-# 👑 프로그래머스 데브코스 프론트엔드 5기 - 5팀 [다섯 공주들]
+# 👑 프로그래머스 데브코스 FE 5기 - 5팀 [ 다섯 공주들 ]
 
 ## 📌 프로젝트 소개
 
