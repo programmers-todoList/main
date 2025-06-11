@@ -25,9 +25,8 @@ button {
 }
 button.addTodoButton,
 button.submitButton,
-button.editButton,
-button.deleteButton,
-button.completeButton {
+button.cancelButton,
+button.deleteButton {
   background-color: black;
   color: white;
   font-size: 16px;
@@ -47,7 +46,7 @@ button.completeButton {
 .newTodo {
   display: none;
 }
-.todo_li {
+.sujinTodo {
   display: none;
 }
 .nothingTodo {
@@ -66,12 +65,12 @@ ul {
   display: flex;
   align-items: center;
 }
-input {
+.mainTodo input {
   width: 100%;
   border: none;
-  height: 20px;
   padding: 0 5px;
   font-size: 12px;
+  height: 20px;
   font-weight: 300;
   outline: none;
 }
@@ -89,6 +88,7 @@ input {
   border-radius: 15px;
   display: flex;
   align-items: center;
+  font-size: 12px;
 }
 .circle {
   width: 5px;
@@ -128,7 +128,7 @@ input.date {
   position: absolute;
   right: 15px;
   top: 15px;
-  width: 85px;
+  width: 90px;
   font-size: 11px;
 }
 
@@ -143,6 +143,7 @@ input.todo {
   flex-direction: column;
 }
 .submitButton,
+.cancelButton,
 .deleteButton {
   width: 40px;
   height: 30px;

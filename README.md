@@ -97,11 +97,32 @@
 
 ### 🔹 수진
 
-- **기능**: 삭제 애니메이션, 할 일 완료 체크, 리스트 필터링
-- **기술 포인트**: `classList`와 `transitionend` 이벤트 활용
-- **스크린샷**:
+- **기능**
+  🪧**Todolist 추가하기**🪧
 
-<img src="./images/sujin.png" alt="수진 UI" width="900" />
+  - 사용자에게 할 일을 입력받습니다
+  - 입력항목 : **할 일**, 추가정보, 할 일 구분 태그, 마감기한
+  - 할 일은 필수입력항목이며, 입력하지 않고 Todolist를 추가하려고 하면 약 2초동안 경고문구가 보여집니다.
+  - 할일구분태그는 색상을 선택하고 이름을 설정할 수 있으며 설정하지 않는 경우는 검은색, 태그없음으로 설정됩니다.
+
+    <br>
+
+  🪧**Todolist 목록**🪧
+
+  - 할 일을 누르면 할 일의 완료여부를 변경할 수 있습니다.
+    - 완료된 할 일 : 취소선과 회색배경으로 변경됨
+  - 마감기한을 입력한 경우우 D-day를 계산해서 보여줍니다
+  - Todollist목록에서 할 일을 **삭제**할 수 있습니다.
+
+    <br>
+
+- **스크린샷**
+
+   <img src="./assets/images/sub/soo/warning_screenshot.png" alt="수진 UI" width="450" />
+
+  - 할일을 입력하지 않고 등록버튼을 누른경우 경고 표시
+
+   <img src="./assets/images/sub/soo/todolist_screenshot.png" alt="수진 UI" width="900" />
 
 ---
 
@@ -130,8 +151,6 @@
 **🖼️ 완료 시 화면**
 
 <img src="../main/assets/images/sub/yoo/uha.allDone.png" alt="유하 완료 페이지" width="900" />
-
-
 
 ---
 
