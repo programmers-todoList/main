@@ -1,3 +1,9 @@
+html,
+body {
+  /* 스크롤 생겨서 따로 추가함.*/
+  overflow: hidden;
+}
+
 .inner {
   width: 1200px;
   margin: 0 auto;
@@ -99,6 +105,7 @@ footer {
 .main_container {
   position: relative;
 }
+
 .main_info {
   position: absolute;
   top: 50%;
