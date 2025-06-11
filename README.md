@@ -101,7 +101,7 @@
 - **기술 포인트**: `classList`와 `transitionend` 이벤트 활용
 - **스크린샷**:
 
-<img src="./images/sujin.png" alt="수진 UI" width="300" />
+<img src="./images/sujin.png" alt="수진 UI" width="900" />
 
 ---
 
@@ -114,14 +114,14 @@
 
 **🖼️ 메인 페이지 UI**
 
-<img src="../main/assets/images/sub/yoo/uha.mainPage.png" alt="유하 메인 페이지 UI" width="300" />
+<img src="../main/assets/images/sub/yoo/uha.mainPage.png" alt="유하 메인 페이지 UI" width="900" />
 
 > 메인 블럭 상단에 왠지 채우고 싶은 맥주잔들이 늘어서 있습니다.  
 > 할 일을 추가하는 입력창과 입력버튼, 할 일이 추가되는 구간도 맥주와 맥주거품이 생각나도록 색상 설정했습니다.
 
 **🖼️ 완료 시 화면**
 
-<img src="../main/assets/images/sub/yoo/uha.allDone.png" alt="유하 완료 페이지" width="300" />
+<img src="../main/assets/images/sub/yoo/uha.allDone.png" alt="유하 완료 페이지" width="900" />
 
 > 할 일을 작성하고 모두 완료하면 가장 오른쪽에 있는 맥주잔에 맥주가 차오릅니다.  
 > 할 일의 갯수와 완료한 일의 갯수에 따라 달라지는 맥주 양을 확인해보세요.  
@@ -135,7 +135,7 @@
 - **기술 포인트**: localStorage 연동
 - **스크린샷**:
 
-<img src="../main/assets/images/sub/eun/eunjung_screen.png" alt="은정 UI" width="300" />
+<img src="../main/assets/images/sub/eun/eunjung_screen.png" alt="은정 UI" width="900" />
 
 ---
 
@@ -145,7 +145,7 @@
 - **기술 포인트**: localStorage 연동으로 새로고침해도 목록 연동
 - **스크린샷**:
 
-<img src="../main/assets/images/sub/bin/eunbinSs.png" alt="은빈 UI" width="300" />
+<img src="../main/assets/images/sub/bin/eunbinSs.png" alt="은빈 UI" width="900" />
 
 ---
 
