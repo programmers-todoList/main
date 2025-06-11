@@ -80,7 +80,7 @@
     flex: 1;
     .iframe {
       width: 100%;
-      min-height: calc(100vh - 370px);
+      min-height: calc(100vh - 400px);
     }
   }
 }

@@ -2,8 +2,7 @@
   width: 100%;
   margin: 0 auto;
 }
-
-header {
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -41,7 +40,6 @@ header {
     }
   }
 }
-
 .container {
   padding: 50px 30px;
   background-color: #f8f8fc;
@@ -57,7 +55,7 @@ header {
     font-weight: 600;
     margin-right: auto;
   }
-  input {
+  #todo_input {
     width: 500px;
     height: 40px;
     padding: 8px 20px;
@@ -65,8 +63,11 @@ header {
     background-color: #ecebf7;
     border-radius: 20px;
     font-family: "Pretendard Variable", Pretendard;
+    &::placeholder {
+      color: #9492c1;
+    }
   }
-  button {
+  #add_button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -97,10 +98,9 @@ header {
     li {
       display: flex;
       align-items: center;
-      padding: 10px 10px 10px 40px;
+      gap: 8px;
+      padding: 10px;
       border-bottom: 1px dashed #ccc;
-      background: url(../images/sub/eun/check_ico.svg) no-repeat 10px
-        center/20px;
     }
     .delete {
       display: flex;
@@ -123,4 +123,25 @@ header {
       height: 16px;
     }
   }
+}
+
+.checkbox {
+  input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  .checkbox_icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+}
+.checkbox input[type="checkbox"]:checked ~ .checkbox_icon {
+  background: url(../images/sub/eun/check_ico.svg) no-repeat center center/ 26px;
+  border: none;
 }
