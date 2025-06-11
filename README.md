@@ -7,6 +7,7 @@
 **투두리스트 앱**을 바닐라 JavaScript로 구현하며, JS의 기초 문법, DOM 조작, 이벤트 처리, LocalStorage 등을 실습했습니다.
 
 ## 🎯 프로젝트 목적
+
 본 프로젝트는 팀원 간 실력 편차를 고려하여, 개별적인 개발 경험을 극대화하는 것을 주요 목표로 합니다. 일반적인 팀 프로젝트에서는 하나의 코드베이스를 공동으로 작성하게 되며, 이 과정에서 상대적으로 경험이 부족한 팀원은 구현 과정에 적극적으로 참여하기보다는 기존 코드를 수동적으로 따라가는 데 그치는 경우가 많습니다.
 
 이러한 학습상의 비효율을 해소하고자, 본 팀은 팀원 각자가 독립적으로 투두리스트 애플리케이션을 구현하는 방식을 채택하였습니다. 이후 각각의 결과물을 하나의 통합 페이지에 iframe을 활용하여 병렬적으로 구성함으로써, 협업의 형태를 유지하면서도 자율적인 개발 역량 향상을 도모하고자 하였습니다.
@@ -37,12 +38,13 @@
 
 ## 🛠 사용 기술 스택
 
-- ![HTML](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white) 
+- ![HTML](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
 - ![CSS](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
-- ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black) 
+- ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
 - **LocalStorage** – 브라우저 내 데이터 저장 및 상태 유지
 
 ---
+
 ## ✅ 메인 페이지 기능 및 UI
 
 ### 🔹 메인
@@ -85,11 +87,11 @@
 
 ### 🔹 은정
 
-- **기능**: 완료/미완료 필터 기능, 키보드 접근성 향상
-- **기술 포인트**: 상태 기반 렌더링 및 동적 필터 로직
+- **기능**: ➕할 일 추가, ➖할 일 삭제, 💽localStorage
+- **기술 포인트**: localStorage 연동
 - **스크린샷**:
 
-<img src="./images/eunjung.png" alt="은정 UI" width="300" />
+<img src="../main/assets/images/sub/eun/eunjung_screen.png" alt="은정 UI" width="300" />
 
 ---
 
@@ -109,3 +111,4 @@
 git clone https://github.com/programmers-todoList/main
 cd main
 # index.html 파일을 브라우저로 열면 실행됩니다.
+```
