@@ -19,29 +19,6 @@
       <span>할 일이 없습니다</span>
     </div>
     <ul>
-      <li class="todo_li">
-        <div class="mainTodo">
-          <button type="button" class="todoForm" onclick="completeTodo(this)">
-            <form>
-              <div class="tagUI">
-                <div class="circle"></div>
-              </div>
-              <span class="dDay"></span>
-              <input class="todo" type="text" required readonly />
-              <input type="text" readonly />
-            </form>
-          </button>
-          <div class="todoButtons">
-            <button
-              type="button"
-              class="deleteButton"
-              onclick="deleteTodo(this)"
-            >
-              <span>삭제</span>
-            </button>
-          </div>
-        </div>
-      </li>
       <li class="newTodo">
         <div class="mainTodo">
           <button type="button" class="todoForm">
@@ -71,8 +48,11 @@
             </form>
           </button>
           <div class="todoButtons">
-            <button class="submitButton" onclick="createNewTodo()">
+            <button class="submitButton">
               <span>등록</span>
+            </button>
+            <button class="cancelButton" onclick="cancelToCreate()">
+              <span>취소</span>
             </button>
           </div>
         </div>
