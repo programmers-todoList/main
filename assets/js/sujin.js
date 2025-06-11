@@ -117,7 +117,6 @@ function init() {
     nothingTodo.style["display"] = "none";
   }
   for (key of Object.keys(localStorage)) {
-    console.log(key.slice(0, 9));
     if (key.slice(0, 9) === "sujinTodo") addTodo.handleClick(key);
   }
 }
