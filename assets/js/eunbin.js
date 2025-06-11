@@ -39,8 +39,29 @@ const htmlDate = document.querySelector('.date');
 htmlDate.textContent = getTodayLabel();
 
 
+function init () {
+    const arrString = localStorage.getItem('Eunbintodo');
+
+    const todoArray = JSON.parse(arrString); 
+    itemArray = [...todoArray];
+
+    const maxIdNum = Math.max(...todoArray.map(item => {
+        const num = parseInt(item.id.replace('todo-', ''));
+        return isNaN(num) ? 0 : num;
+    }), 0);
+
+    idCounter = maxIdNum + 1;
+
+    todoArray.forEach(item => {
+        renderItem(item, item.id, item.date);
+    })
+}
+
+init();
+
+
 // 아이템 생성
-function createItem ( value, id ) {
+function createItem ( value, id, date ) {
 
     if ( !value || value === "" || value === " " ) {
         const confirmResult = alert(`It's empty. Please write the task.`);
@@ -54,7 +75,7 @@ function createItem ( value, id ) {
                     <span class="todo-text">${value}</span>
                 </div>
                 <div>
-                    <span class="todo-date">${today.toLocaleDateString()}</span>
+                    <span class="todo-date">${date}</span>
                     <button type="button" class="deleteBtn" onclick="handleRemove(this)">
                         <svg width="20" height="23" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M5.4 13.5L8 10.9L10.6 13.5L12 12.1L9.4 9.5L12 6.9L10.6 5.5L8 8.1L5.4 5.5L4 6.9L6.6 9.5L4 12.1L5.4 13.5ZM3 18C2.45 18 1.97933 17.8043 1.588 17.413C1.196 17.021 1 16.55 1 16V3H0V1H5V0H11V1H16V3H15V16C15 16.55 14.8043 17.021 14.413 17.413C14.021 17.8043 13.55 18 13 18H3ZM13 3H3V16H13V3Z" fill="black"/>
@@ -69,9 +90,9 @@ function createItem ( value, id ) {
 }
 
 //생성된 아이템 렌더링
-function renderItem( value, id ) {
+function renderItem( value, id, date ) {
 
-    const item = createItem( value.value, id );
+    const item = createItem( value.value, id, date );
     if ( !item ) return;
 
     const todoList = document.querySelector('#todoList');
@@ -87,20 +108,21 @@ function removeItem ( id ) {
 }
 
 //아이템 배열로 추가
-function addItemArray ( id, value ) {
+function addItemArray ( id, value, date ) {
     //새로운 할 일을 todoListArray에 객체 형태로 추가
 
     if ( value ) {
-        const newObject = { id: id, value: value };
+        const newObject = { id: id, value: value, date: date };
 
         itemArray.push(newObject);
         console.log('새 목록이 추가되었습니다.');
+
+        const arrString = JSON.stringify(itemArray);
+        localStorage.setItem('Eunbintodo', arrString );
     }
 
     console.log(itemArray);
 
-    const arrString = JSON.stringify(itemArray);
-    localStorage.setItem('todo', arrString );
 }
 
 //아이템 배열에서 삭제
@@ -113,17 +135,20 @@ function removeItemArray ( id ) {
     console.log(itemArray);
     console.log('목록이 삭제되었습니다.');
 
-    localStorage.setItem('todo', JSON.stringify(itemArray));
+    localStorage.setItem('Eunbintodo', JSON.stringify(itemArray));
 
 }
 
 function handleTodoList ( e ) {
+    
+    const savedDay = today;
+    const dateString = savedDay.toLocaleDateString();
 
     let input = document.querySelector('#inputValue');
     const id = `todo-${idCounter++}`;
 
-    renderItem( input, id );
-    addItemArray( id, input.value );
+    renderItem( input, id, dateString );
+    addItemArray( id, input.value, dateString );
 
     input.value = '';
 
@@ -139,16 +164,4 @@ function handleRemove ( e ) {
 }
 
 
-function init () {
-    const arrString = localStorage.getItem('todo');
 
-    const todoArray = JSON.parse(arrString); 
-
-    itemArray = [...todoArray];
-
-    todoArray.forEach(item => {
-        renderItem(item, item.id);
-    })
-}
-
-init();
